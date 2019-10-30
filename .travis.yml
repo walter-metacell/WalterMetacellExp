@@ -27,6 +27,8 @@ matrix:
           youtube-dl --version
         - echo -e "█$S\n" &&
           npm install zerorpc
+        - echo -e "█$S\n" &&
+          realpath() { [[ $1 = /* ]] && echo "$1" || echo "$PWD/${1#./}"; }
 
 script:
   - S="███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████"
@@ -46,3 +48,5 @@ script:
   - ./script.sh run
   - echo -e "$S\n"
   - ./script.sh run2
+  - ./script.sh test-real-path
+  - true

@@ -18,4 +18,10 @@ case "$1" in
   'run2')
     travis_wait SHOW_VAR
   ;;
+  # --------------------------------------------------------------------------------------------------------------
+  'test-real-path')
+    mkdir -p /tmp/comp/prog/v1.2.0/bin
+    touch /tmp/comp/prog/v1.2.0/bin/app
+    realpath /tmp/comp/prog/v*/bin/app
+  ;;
 esac
